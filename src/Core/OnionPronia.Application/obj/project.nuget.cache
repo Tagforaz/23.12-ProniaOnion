@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "bxbcHOAmSm0=",
+  "dgSpecHash": "rl1tbGMOO0Y=",
   "success": true,
   "projectFilePath": "C:\\Users\\Tagforaz\\Desktop\\Pb306\\OnionPronia\\src\\Core\\OnionPronia.Application\\OnionPronia.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Tagforaz\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
+    "C:\\Users\\Tagforaz\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Tagforaz\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "C:\\Users\\Tagforaz\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

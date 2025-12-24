@@ -9,3 +9,4 @@ C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Core\OnionPronia.Domain\obj\Debu
 C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Core\OnionPronia.Domain\obj\Debug\net8.0\refint\OnionPronia.Domain.dll
 C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Core\OnionPronia.Domain\obj\Debug\net8.0\OnionPronia.Domain.pdb
 C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Core\OnionPronia.Domain\obj\Debug\net8.0\ref\OnionPronia.Domain.dll
+C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Core\OnionPronia.Domain\obj\Debug\net8.0\OnionPronia.Domain.sourcelink.json

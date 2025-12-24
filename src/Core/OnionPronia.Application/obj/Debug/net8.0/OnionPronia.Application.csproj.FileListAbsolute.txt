@@ -13,3 +13,4 @@ C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Core\OnionPronia.Application\obj
 C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Core\OnionPronia.Application\obj\Debug\net8.0\refint\OnionPronia.Application.dll
 C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Core\OnionPronia.Application\obj\Debug\net8.0\OnionPronia.Application.pdb
 C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Core\OnionPronia.Application\obj\Debug\net8.0\ref\OnionPronia.Application.dll
+C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Core\OnionPronia.Application\obj\Debug\net8.0\OnionPronia.Application.sourcelink.json
