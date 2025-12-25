@@ -152,3 +152,6 @@ C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\Presentation\OnionProniaAPI\bin\Debu
 C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\Presentation\OnionProniaAPI\bin\Debug\net8.0\OnionPronia.Application.pdb
 C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\Presentation\OnionProniaAPI\bin\Debug\net8.0\OnionPronia.Domain.pdb
 C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\Presentation\OnionProniaAPI\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\Presentation\OnionProniaAPI\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\Presentation\OnionProniaAPI\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\Presentation\OnionProniaAPI\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

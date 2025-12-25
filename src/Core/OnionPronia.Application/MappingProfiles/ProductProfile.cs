@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OnionPronia.Application.DTOs;
+using OnionPronia.Domain.Entities;
+
 
 namespace OnionPronia.Application.MappingProfiles
 {
@@ -11,7 +9,7 @@ namespace OnionPronia.Application.MappingProfiles
     {
         public ProductProfile()
         {
-            
+            CreateMap<Product,GetProductInCategoryDto>();
         }
     }
 }

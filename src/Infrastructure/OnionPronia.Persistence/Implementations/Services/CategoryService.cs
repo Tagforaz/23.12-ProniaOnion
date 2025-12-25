@@ -25,7 +25,9 @@ namespace OnionPronia.Persistence.Implementations.Services
                sort: c => c.Id,
                isDesc: true,
                page: page,
-               take: take).ToListAsync();
+               take: take,
+               includes: nameof(Category.Products)
+               ).ToListAsync();
             return _mapper.Map<IReadOnlyList<GetCategoryItemDto>>(categories);
             //return await _repository.GetAll(
             //   sort: c => c.Id,
@@ -40,10 +42,11 @@ namespace OnionPronia.Persistence.Implementations.Services
             Category? category = await _repository.GetByIdAsync(id.Value, nameof(Category.Products));
 
             if (category == null) throw new Exception("Category not found");
-            return new GetCategoryDto(category.Id,
-                category.Name,
-                ProductDtos: category.Products.Select(p => new GetProductInCategoryDto(p.Id, p.Name, p.Price))
-                );
+            return _mapper.Map<GetCategoryDto>(category);
+                //new GetCategoryDto(category.Id,
+                //category.Name,
+                //ProductDtos: category.Products.Select(p => new GetProductInCategoryDto(p.Id, p.Name, p.Price))
+                //);
         }
         public async Task CreateAsync(PostCategoryDto categoryDto)
         {
@@ -52,11 +55,13 @@ namespace OnionPronia.Persistence.Implementations.Services
             {
                 throw new Exception($"Category name:{categoryDto.Name} already exists");
             }
-            Category category = new()
-            {
-                Name = categoryDto.Name,
-                CreatedAt = DateTime.Now
-            };
+            Category category = _mapper.Map<Category>(categoryDto);
+            category.CreatedAt=DateTime.Now;
+            //Category category = new()
+            //{
+            //    Name = categoryDto.Name,
+            //    CreatedAt = DateTime.Now
+            //};
             _repository.Add(category);
             await _repository.SaveChangesAsync();
         }
@@ -67,10 +72,14 @@ namespace OnionPronia.Persistence.Implementations.Services
             {
                 throw new Exception($"Category name:{categoryDto.Name} already exists");
             }
+
             Category? existed = await _repository.GetByIdAsync(id);
+
             if (existed is null) throw new Exception("Category not found");
-            existed.Name = categoryDto.Name;
+
+            existed = _mapper.Map(categoryDto,existed);
             existed.UpdateAt = DateTime.Now;
+
             _repository.Update(existed);
             await _repository.SaveChangesAsync();
         }
