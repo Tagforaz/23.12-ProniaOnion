@@ -19,7 +19,7 @@ namespace OnionPronia.Application.Interfaces.Repositories
             params string[]? includes
             );
 
-        Task<T> GetByIdAsync(int id, params string[] includes);
+        Task<T> GetByIdAsync(long id, params string[] includes);
         void Add(T entity);
 
         void Update(T entity);

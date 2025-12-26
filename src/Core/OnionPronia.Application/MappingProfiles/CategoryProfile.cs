@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using OnionPronia.Application.DTOs;
+using OnionPronia.Application.DTOs.Categories;
 using OnionPronia.Domain.Entities;
 
 namespace OnionPronia.Application.MappingProfiles
@@ -18,7 +19,7 @@ namespace OnionPronia.Application.MappingProfiles
                 .ForCtorParam(
                 nameof(GetCategoryDto.ProductDtos),
                 opt => opt.MapFrom(c => c.Products));
-
+            CreateMap<Category, GetCategoryInProductDto>();
             CreateMap<PostCategoryDto, Category>();
             CreateMap<PutCategoryDto, Category>();
         }
