@@ -37,7 +37,7 @@ namespace OnionPronia.Persistence.Implementations.Services
             //   ).Select(c => new GetCategoryItemDto(c.Id, c.Name, c.Products.Count)).ToListAsync();
 
         }
-        public async Task<GetCategoryDto> GetByIdAsync(int? id)
+        public async Task<GetCategoryDto> GetByIdAsync(long? id)
         {
             Category? category = await _repository.GetByIdAsync(id.Value, nameof(Category.Products));
 
@@ -65,7 +65,7 @@ namespace OnionPronia.Persistence.Implementations.Services
             _repository.Add(category);
             await _repository.SaveChangesAsync();
         }
-        public async Task UpdateAsync(int id, PutCategoryDto categoryDto)
+        public async Task UpdateAsync(long id, PutCategoryDto categoryDto)
         {
             bool result = await _repository.AnyAsync(c => c.Name == categoryDto.Name && c.Id != id);
             if (result)
@@ -83,7 +83,7 @@ namespace OnionPronia.Persistence.Implementations.Services
             _repository.Update(existed);
             await _repository.SaveChangesAsync();
         }
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(long id)
         {
             Category? existed = await _repository.GetByIdAsync(id);
             if (existed is null) throw new Exception("Category not found");

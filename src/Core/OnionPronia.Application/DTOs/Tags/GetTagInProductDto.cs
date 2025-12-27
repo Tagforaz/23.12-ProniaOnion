@@ -1,6 +1,6 @@
 ﻿
 
-namespace OnionPronia.Application.DTOs.Tags
+namespace OnionPronia.Application.DTOs
 {
     public record GetTagInProductDto
     (

@@ -10,9 +10,9 @@ namespace OnionPronia.Application.Interfaces.Services
     public interface ICategoryService
     {
         Task<IReadOnlyList<GetCategoryItemDto>> GetAllAsync(int page, int take);
-        Task<GetCategoryDto> GetByIdAsync(int? id);
+        Task<GetCategoryDto> GetByIdAsync(long? id);
         Task CreateAsync(PostCategoryDto categoryDto);
-        Task UpdateAsync(int id, PutCategoryDto categoryDto);
-        Task DeleteAsync(int id);
+        Task UpdateAsync(long id, PutCategoryDto categoryDto);
+        Task DeleteAsync(long id);
     }
 }

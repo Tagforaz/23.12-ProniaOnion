@@ -55,6 +55,39 @@ namespace OnionPronia.Persistence.Contexts.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("OnionPronia.Domain.Entities.Color", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Colors");
+                });
+
             modelBuilder.Entity("OnionPronia.Domain.Entities.Product", b =>
                 {
                     b.Property<long>("Id")
@@ -107,6 +140,36 @@ namespace OnionPronia.Persistence.Contexts.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("OnionPronia.Domain.Entities.ProductColor", b =>
+                {
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ColorId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("ProductId", "ColorId");
+
+                    b.HasIndex("ColorId");
+
+                    b.ToTable("ProductColors");
+                });
+
+            modelBuilder.Entity("OnionPronia.Domain.Entities.ProductSize", b =>
+                {
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("SizeId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("ProductId", "SizeId");
+
+                    b.HasIndex("SizeId");
+
+                    b.ToTable("ProductSizes");
+                });
+
             modelBuilder.Entity("OnionPronia.Domain.Entities.ProductTag", b =>
                 {
                     b.Property<long>("ProductId")
@@ -120,6 +183,39 @@ namespace OnionPronia.Persistence.Contexts.Migrations
                     b.HasIndex("TagId");
 
                     b.ToTable("ProductTags");
+                });
+
+            modelBuilder.Entity("OnionPronia.Domain.Entities.Size", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Sizes");
                 });
 
             modelBuilder.Entity("OnionPronia.Domain.Entities.Tag", b =>
@@ -166,6 +262,44 @@ namespace OnionPronia.Persistence.Contexts.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("OnionPronia.Domain.Entities.ProductColor", b =>
+                {
+                    b.HasOne("OnionPronia.Domain.Entities.Color", "Color")
+                        .WithMany("ProductColors")
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnionPronia.Domain.Entities.Product", "Product")
+                        .WithMany("ProductColors")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Color");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("OnionPronia.Domain.Entities.ProductSize", b =>
+                {
+                    b.HasOne("OnionPronia.Domain.Entities.Product", "Product")
+                        .WithMany("ProductSizes")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnionPronia.Domain.Entities.Size", "Size")
+                        .WithMany("ProductSizes")
+                        .HasForeignKey("SizeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Size");
+                });
+
             modelBuilder.Entity("OnionPronia.Domain.Entities.ProductTag", b =>
                 {
                     b.HasOne("OnionPronia.Domain.Entities.Product", "Product")
@@ -190,9 +324,23 @@ namespace OnionPronia.Persistence.Contexts.Migrations
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("OnionPronia.Domain.Entities.Color", b =>
+                {
+                    b.Navigation("ProductColors");
+                });
+
             modelBuilder.Entity("OnionPronia.Domain.Entities.Product", b =>
                 {
+                    b.Navigation("ProductColors");
+
+                    b.Navigation("ProductSizes");
+
                     b.Navigation("ProductTags");
+                });
+
+            modelBuilder.Entity("OnionPronia.Domain.Entities.Size", b =>
+                {
+                    b.Navigation("ProductSizes");
                 });
 
             modelBuilder.Entity("OnionPronia.Domain.Entities.Tag", b =>
