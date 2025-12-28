@@ -42,7 +42,8 @@ namespace OnionPronia.Persistence.Implementations.Services
                 sort: c => c.Id,
                 isDesc: true,
                 page: page,
-                take: take
+                take: take,
+                includes: nameof(Color.ProductColors)
                 ).ToListAsync();
             return _mapper.Map<IReadOnlyList<GetColorItemDto>>(colors);
         }

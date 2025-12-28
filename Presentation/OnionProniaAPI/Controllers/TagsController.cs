@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using OnionPronia.Application.DTOs;
 using OnionPronia.Application.Interfaces.Services;
 
@@ -7,16 +6,12 @@ namespace OnionProniaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class TagsController : ControllerBase
     {
+        private readonly ITagService _service;
 
-
-        private readonly ICategoryService _service;
-
-        public CategoriesController(ICategoryService service)
+        public TagsController(ITagService service)
         {
-
-
             _service = service;
         }
         [HttpGet]
@@ -33,17 +28,16 @@ namespace OnionProniaAPI.Controllers
             return Ok(await _service.GetByIdAsync(id));
         }
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm] PostCategoryDto categoryDto)
+        public async Task<IActionResult> Create([FromForm] PostTagDto tagDto)
         {
-
-            await _service.CreateAsync(categoryDto);
+            await _service.CreateAsync(tagDto);
             return Created();
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(long? id, [FromForm] PutCategoryDto categoryDto)
+        public async Task<IActionResult> Update(long? id, [FromForm] PutTagDto tagDto)
         {
             if (id < 1) return BadRequest();
-            await _service.UpdateAsync(id.Value, categoryDto);
+            await _service.UpdateAsync(id.Value, tagDto);
             return NoContent();
         }
         [HttpDelete]

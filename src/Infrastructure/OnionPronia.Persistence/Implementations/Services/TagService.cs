@@ -47,7 +47,8 @@ namespace OnionPronia.Persistence.Implementations.Services
                 sort: t => t.Id,
                 isDesc: true,
                 page: page,
-                take: take
+                take: take,
+                includes: nameof(Tag.ProductTags)
                 ).ToListAsync();
             return _mapper.Map<IReadOnlyList<GetTagItemDto>>(tags);
         }

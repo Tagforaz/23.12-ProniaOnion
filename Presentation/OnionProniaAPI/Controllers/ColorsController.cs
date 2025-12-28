@@ -1,4 +1,4 @@
-﻿
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnionPronia.Application.DTOs;
 using OnionPronia.Application.Interfaces.Services;
@@ -7,16 +7,12 @@ namespace OnionProniaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class ColorsController : ControllerBase
     {
+        private readonly IColorService _service;
 
-
-        private readonly ICategoryService _service;
-
-        public CategoriesController(ICategoryService service)
+        public ColorsController(IColorService service)
         {
-
-
             _service = service;
         }
         [HttpGet]
@@ -33,17 +29,17 @@ namespace OnionProniaAPI.Controllers
             return Ok(await _service.GetByIdAsync(id));
         }
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm] PostCategoryDto categoryDto)
+        public async Task<IActionResult> Create([FromForm] PostColorDto colorDto)
         {
 
-            await _service.CreateAsync(categoryDto);
+            await _service.CreateAsync(colorDto);
             return Created();
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(long? id, [FromForm] PutCategoryDto categoryDto)
+        public async Task<IActionResult> Update(long? id, [FromForm] PutColorDto colorDto)
         {
             if (id < 1) return BadRequest();
-            await _service.UpdateAsync(id.Value, categoryDto);
+            await _service.UpdateAsync(id.Value, colorDto);
             return NoContent();
         }
         [HttpDelete]

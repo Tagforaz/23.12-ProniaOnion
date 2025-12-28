@@ -11,7 +11,9 @@ namespace OnionPronia.Application.MappingProfiles
         {
            
             CreateMap<Size, GetSizeDto>();
-            CreateMap<Size, GetSizeItemDto>();
+            CreateMap<Size, GetSizeItemDto>()
+                .ForCtorParam(nameof(GetSizeItemDto.ProductCount),
+                  opt => opt.MapFrom(s => s.ProductSizes.Count)); ;
             CreateMap<PostSizeDto, Size>();
             CreateMap<PutSizeDto, Size>();
         }

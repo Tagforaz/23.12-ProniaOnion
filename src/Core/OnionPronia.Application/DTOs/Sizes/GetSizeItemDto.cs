@@ -1,7 +1,7 @@
 ﻿
 namespace OnionPronia.Application.DTOs
 {
-    public class GetSizeItemDto
+    public record GetSizeItemDto
     (
         long Id,
         string Name,

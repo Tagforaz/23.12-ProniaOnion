@@ -1,8 +1,7 @@
 ﻿
 
 using OnionPronia.Application.DTOs.Categories;
-using OnionPronia.Application.DTOs.Tags;
-using OnionPronia.Domain.Entities;
+
 
 namespace OnionPronia.Application.DTOs.Products
 {
@@ -14,7 +13,9 @@ namespace OnionPronia.Application.DTOs.Products
         string SKU,
         string Description,
         GetCategoryInProductDto CategoryDto,
-        ICollection<GetTagInProductDto>  TagDtos
+        ICollection<GetTagInProductDto> TagDtos,
+        ICollection<GetSizeInProductDto> SizeDtos,
+        ICollection<GetColorInProductDto> ColorDtos
 
         );
 }

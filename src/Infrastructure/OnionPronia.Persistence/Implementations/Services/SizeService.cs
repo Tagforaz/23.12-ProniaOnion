@@ -29,7 +29,7 @@ namespace OnionPronia.Persistence.Implementations.Services
             await _repository.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(long id)
         {
             Size? existed = await _repository.GetByIdAsync(id);
             if (existed is null) throw new Exception("Size not found");
@@ -43,12 +43,13 @@ namespace OnionPronia.Persistence.Implementations.Services
                    sort: s => s.Id,
                    isDesc: true,
                    page: page,
-                   take: take
+                   take: take,
+                   includes: nameof(Size.ProductSizes)
                    ).ToListAsync();
             return _mapper.Map<IReadOnlyList<GetSizeItemDto>>(sizes);
         }
 
-        public async Task<GetSizeDto> GetByIdAsync(int? id)
+        public async Task<GetSizeDto> GetByIdAsync(long? id)
         {
             if (id is null) throw new Exception("Id is required");
             Size? size = await _repository.GetByIdAsync(id.Value);
@@ -56,7 +57,7 @@ namespace OnionPronia.Persistence.Implementations.Services
             return _mapper.Map<GetSizeDto>(size);
         }
 
-        public async Task UpdateAsync(int id, PutSizeDto sizeDto)
+        public async Task UpdateAsync(long id, PutSizeDto sizeDto)
         {
             bool result = await _repository.AnyAsync(s => s.Name == sizeDto.Name && s.Id != id);
             if (result)
