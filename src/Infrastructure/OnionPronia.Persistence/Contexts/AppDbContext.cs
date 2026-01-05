@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnionPronia.Domain.Entities;
 using OnionPronia.Persistence.Configurations;
+using OnionPronia.Persistence.Contexts.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,35 @@ namespace OnionPronia.Persistence.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            //modelBuilder.Entity<Category>().HasQueryFilter(c=>c.IsDeleted==false);
+            //modelBuilder.Entity<Product>().HasQueryFilter(p => p.IsDeleted == false);
+            //modelBuilder.ApplyQueryFilter<Category>();
+            //modelBuilder.ApplyQueryFilter<Product>();
+            modelBuilder.ApplyAllQueryFilters();
             base.OnModelCreating(modelBuilder);
+        }
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var datas = ChangeTracker.Entries<Category>();
+            foreach (var entry in datas)
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Modified:
+                        var isDeletedChanged = entry.OriginalValues.GetValue<bool>(nameof(Category.IsDeleted))
+                            !=entry.CurrentValues.GetValue<bool>(nameof(Category.IsDeleted));
+                        if (!isDeletedChanged)
+                        {
+                            entry.Entity.UpdateAt= DateTime.UtcNow;
+                        }
+                        break;
+                        case EntityState.Added:
+                        entry.Entity.CreatedAt = DateTime.UtcNow;
+                        break;
+                   
+                }
+            }
+            return base.SaveChangesAsync(cancellationToken);
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }

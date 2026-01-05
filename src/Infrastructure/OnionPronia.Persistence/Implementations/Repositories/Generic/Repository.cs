@@ -1,4 +1,4 @@
-﻿
+﻿ 
 
 using Microsoft.EntityFrameworkCore;
 using OnionPronia.Application.Interfaces.Repositories;
@@ -22,6 +22,7 @@ namespace OnionPronia.Persistence.Implementations.Repositories
             Expression<Func<T, bool>>? func = null,
             Expression<Func<T, object>>? sort = null,
             bool isDesc = false,
+            bool isIgnore = false,
             int page = 0,
             int take = 0,
             params string[]? includes
@@ -53,6 +54,11 @@ namespace OnionPronia.Persistence.Implementations.Repositories
             {
                 query = _getIncludes(query, includes);
             }
+            if (isIgnore)
+            {
+                query = query.IgnoreQueryFilters();
+            }
+        
             return query;
         }
         public async Task<T?> GetByIdAsync(long id, params string[] includes)

@@ -8,6 +8,7 @@ namespace OnionPronia.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
+            
             builder
              .Property(p => p.Name)
              .IsRequired()
