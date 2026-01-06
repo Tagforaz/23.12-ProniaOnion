@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OnionPronia.Application.DTOs;
 using OnionPronia.Application.Interfaces.Services;
 
 namespace OnionProniaAPI.Controllers
@@ -25,6 +26,12 @@ namespace OnionProniaAPI.Controllers
         {
             if (id < 1) return BadRequest();
             return Ok(await _service.GetByIdAsync(id));
+        }
+        [HttpPost]  
+        public async Task<IActionResult> PostAsync([FromForm]PostProductDto productDto)
+        {
+            await _service.CreateProductAsync(productDto);
+            return Created();
         }
     }
 }

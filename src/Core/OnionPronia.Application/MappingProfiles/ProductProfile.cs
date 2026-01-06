@@ -33,7 +33,12 @@ namespace OnionPronia.Application.MappingProfiles
                .Select(pt => new GetColorInProductDto(pt.Color.Id, pt.Color.Name))
                .ToList()));
 
-
+            CreateMap<PostProductDto, Product>()
+                .ForMember(
+                p => p.ProductTags,
+                opt => opt.MapFrom(pDto => pDto.TagIds
+                .Select(tId => new ProductTag { TagId = tId }))
+                );
         }
     }
 }

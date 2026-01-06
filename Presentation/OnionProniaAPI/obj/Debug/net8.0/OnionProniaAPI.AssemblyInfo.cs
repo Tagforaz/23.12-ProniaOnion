@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnionProniaAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fdc7226f4c3264d109472fb9cdaf02452961157a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98a868947b43ab001f3ea3c10e22e08b7c30cdcf")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnionProniaAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnionProniaAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
