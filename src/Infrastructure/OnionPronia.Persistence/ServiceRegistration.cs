@@ -39,7 +39,7 @@ namespace OnionPronia.Persistence
             services.AddScoped<ITagService,TagService>();
             services.AddScoped<IColorService, ColorService>();
             services.AddScoped<ISizeService, SizeService>();
-
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
             return services;
         }
     }
