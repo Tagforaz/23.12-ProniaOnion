@@ -9,3 +9,10 @@ C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Infrastructure\OnionPronia.Infra
 C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Infrastructure\OnionPronia.Infrastructure\obj\Debug\net8.0\refint\OnionPronia.Infrastructure.dll
 C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Infrastructure\OnionPronia.Infrastructure\obj\Debug\net8.0\OnionPronia.Infrastructure.pdb
 C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Infrastructure\OnionPronia.Infrastructure\obj\Debug\net8.0\ref\OnionPronia.Infrastructure.dll
+C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Infrastructure\OnionPronia.Infrastructure\bin\Debug\net8.0\OnionPronia.Application.dll
+C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Infrastructure\OnionPronia.Infrastructure\bin\Debug\net8.0\OnionPronia.Domain.dll
+C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Infrastructure\OnionPronia.Infrastructure\bin\Debug\net8.0\OnionPronia.Application.pdb
+C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Infrastructure\OnionPronia.Infrastructure\bin\Debug\net8.0\OnionPronia.Domain.pdb
+C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Infrastructure\OnionPronia.Infrastructure\obj\Debug\net8.0\OnionPronia.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Infrastructure\OnionPronia.Infrastructure\obj\Debug\net8.0\OnionPronia.Infrastructure.sourcelink.json
+C:\Users\Tagforaz\Desktop\Pb306\OnionPronia\src\Infrastructure\OnionPronia.Infrastructure\obj\Debug\net8.0\OnionPro.5C070D9E.Up2Date
